@@ -4,6 +4,7 @@ from Controller.ICAMethod import ICAMethod
 from Servers.LogisticRegression import LRClassifier
 from Servers.SVMClassifier import SVMClassifier
 from Servers.NeuronNetwork import NeuralNetworkClassifier
+import Servers.NaiveBayers as NB
 import numpy as np
 
 def mainView():
@@ -55,6 +56,7 @@ def classifierSelect(data,y):
     print("================1.Logistic Regression=======")
     print("================2.SVM=======================")
     print("================3.Neuron Network============")
+    print("================4.naive Bayesian============")
     selected = input("please select item:")
     if selected == "1":
         LRClassifier(data, y)
@@ -65,6 +67,8 @@ def classifierSelect(data,y):
     elif selected == "3":
         NeuralNetworkClassifier(data,y)
         mainView()
+    elif selected == "4":
+        NB.begin(data,y)
     else:
         print("please select correct item!")
         mainView()

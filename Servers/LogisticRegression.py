@@ -3,7 +3,7 @@ from sklearn.cross_validation import train_test_split
 
 def LRClassifier(data, y):
     X_train_raw, X_test_raw, y_train, y_test = train_test_split(data,y)
-    classifier=LogisticRegression(C=0.1)
+    classifier=LogisticRegression(fit_intercept = True,intercept_scaling=0.0001)
     classifier.fit(X_train_raw,y_train)
     predictions=classifier.predict(X_test_raw)
     correct = 0

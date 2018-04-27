@@ -3,7 +3,7 @@ from sklearn.cross_validation import train_test_split
 
 def NeuralNetworkClassifier(data,y):
     X_train_raw, X_test_raw, y_train, y_test = train_test_split(data, y)
-    classifier = MLPClassifier()
+    classifier = MLPClassifier(hidden_layer_sizes=15)
     classifier.fit(X_train_raw,y_train)
     predictions = classifier.predict(X_test_raw)
     correct = 0
